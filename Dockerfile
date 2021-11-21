@@ -1,10 +1,10 @@
 # built filtron from dalf/filtron
 FROM golang:1.17-alpine
-WORKDIR $GOPATH/src/github.com/asciimoo/filtron
-ENV UPSTREAM_COMMIT=d8150687f4f220593de723a5b8c016a1a2a841b5
+WORKDIR $GOPATH/src/github.com/searxng/filtron
+ENV UPSTREAM_COMMIT=6e77216bd6f9e827d6783f58826fe7761cab1c73
 
 RUN apk add --no-cache git
-RUN git clone https://github.com/dalf/filtron.git .
+RUN git clone https://github.com/searxng/filtron.git .
 RUN git reset --hard ${UPSTREAM_COMMIT}
 RUN go get -d -v
 RUN gofmt -l ./
