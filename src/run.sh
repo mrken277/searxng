@@ -73,8 +73,8 @@ unset MORTY_KEY
 
 # start filtron in front of searxng or just searxng
 if [ ! -z "${FILTRON}" ]; then
-    exec uwsgi --master --http-socket "127.0.0.1:3000" "/etc/uwsgi/uwsgi.ini" &
-    exec filtron --rules /etc/filtron/rules.json -listen 0.0.0.0:8080 -api 0.0.0.0:4041 -target 127.0.0.1:3000
+    exec uwsgi --master --http-socket "0.0.0.0:3000" "/etc/uwsgi/uwsgi.ini" &
+    exec filtron --rules /etc/filtron/rules.json -listen 0.0.0.0:8080 -api 0.0.0.0:4041 -target 0.0.0.0:3000
 else
     exec uwsgi --master --http-socket "0.0.0.0:8080" "/etc/uwsgi/uwsgi.ini"
 fi
